@@ -1,0 +1,23 @@
+<h4>Add new Operation</h4>
+<form>
+    <mat-form-field>
+        <mat-label>Select Type</mat-label>
+        <mat-select required [(ngModel)]="addOperation.type" [ngModelOptions]="{standalone: true}">
+            <mat-option *ngFor="let type of types" [value]="type.value">
+                {{type.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input required matInput placeholder="Input X" type="number" [(ngModel)]="addOperation.x"
+            [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input required matInput placeholder="Input Y" type="number" [(ngModel)]="addOperation.y"
+            [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <button [disabled]="addOperation.type === ''" (click)="onAddOperation()" type="submit" color="primary"
+        mat-raised-button>Add</button>
+    &nbsp;
+    <button (click)="onNoClick()" color="warn" mat-raised-button>Cancel</button>
+</form>
